@@ -4,13 +4,13 @@ go 1.26.4
 
 require (
 	github.com/hashicorp/go-version v1.9.0
-	golang.org/x/mod v0.35.0
-	golang.org/x/vuln v1.3.0
+	golang.org/x/mod v0.42.0
+	golang.org/x/vuln v1.9.0
 )
 
 require (
-	golang.org/x/sync v0.20.0 // indirect
-	golang.org/x/sys v0.45.0 // indirect
-	golang.org/x/telemetry v0.0.0-20260421165255-392afab6f40e // indirect
-	golang.org/x/tools v0.44.0 // indirect
+	golang.org/x/sync v0.24.0 // indirect
+	golang.org/x/sys v0.49.0 // indirect
+	golang.org/x/telemetry v0.0.0-20261010193011-f71dc92da45e // indirect
+	golang.org/x/tools v0.52.0 // indirect
 )
