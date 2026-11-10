@@ -113,12 +113,21 @@ func run(ctx context.Context) error {
 
 	// Go get all the relevant fixes.
 	goCmd := exec.CommandContext(ctx, "go", getargs...)
-	fmt.Println(goCmd.String())
+
+	stdout := bytes.NewBuffer(nil)
+	stderr := bytes.NewBuffer(nil)
+	goCmd.Stdout = stdout
+	goCmd.Stderr = stderr
+
 	err = goCmd.Start()
 	if err != nil {
 		return fmt.Errorf("go get start: %w", err)
 	}
-	return goCmd.Wait()
+	err = goCmd.Wait()
+	if err != nil {
+		return fmt.Errorf("go get: %w\nSTDOUT: %s\n\nSTDERR:\n%s", err, stdout.String(), stderr.String())
+	}
+	return nil
 }
 
 func readModuleName() (string, error) {
