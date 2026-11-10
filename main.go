@@ -99,6 +99,9 @@ func run(ctx context.Context) error {
 			fixes[f.Trace[0].Module] = fixed
 		}
 	}
+	if len(fixes) == 0 {
+		return nil
+	}
 
 	getargs := []string{"get"}
 
